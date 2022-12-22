@@ -1,0 +1,63 @@
+* {
+  --black: hsla(80, 100%, 1%, 1);
+  --olive-drab-7: hsla(47, 27%, 17%, 1);
+  --davys-grey: hsla(39, 9%, 32%, 1);
+  --shadow-blue: hsla(216, 17%, 56%, 1);
+  --pewter-blue: hsla(190, 25%, 66%, 1);
+  --mint-cream: hsla(159, 100%, 97%, 1);
+  --pale-silver: hsla(26, 23%, 79%, 1);
+  --deep-taupe: hsla(339, 15%, 41%, 1);
+  --font-family: 'Code Light';
+  box-sizing: border-box;
+}
+
+html,
+body {  
+  background-color: var(--mint-cream);
+  font-family: var(--font-family);
+  color: var(--deep-taupe);
+  font-weight:700;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+}
+
+.main {
+  grid-area: 1/2/4/3;
+  grid-row: 1 / span 3;
+  text-align: center;
+  border: double 2px var(--deep-taupe);
+  margin: 15px;
+  padding: 10px;
+}
+
+#header{
+  margin-bottom: 3em;
+  text-align: center
+}
+
+.todo-input {
+  padding: 20px;
+  margin: 20px;
+}
+
+.todo-submit {
+  position: relative;
+  left: 50px;
+  margin: 20px;
+  justify-self: center;
+}
+ 
+li {
+  list-style: none;
+}
+
+ul {
+  height: 115px;
+}

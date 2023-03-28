@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Navigate, useParams } from 'react-router-dom';
-import { userContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
 import { authUser } from '../services/auth';
 
 export default function Auth() {
@@ -11,7 +11,7 @@ export default function Auth() {
   
   const handleRedirect = true;
   
-  const { user, setUser } = userContext();
+  const { user, setUser } = useUserContext();
 
   async function handleAuth() {
     const response = await authUser(email, password, type);

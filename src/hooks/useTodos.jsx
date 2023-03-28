@@ -13,7 +13,7 @@ export function useTodos() {
       } catch (err) {
         setError(err.message);
       }
-    };
+    }
     fetchData();
   }, []);
   return { todos, setTodos, error, setError };
@@ -30,7 +30,7 @@ export function useTodoById(id) {
       } catch (err) {
         setError(err.message);
       }
-    };
+    }
     fetchData();
   }, [id]);
   return { todoDetail, setTodoDetail, error, setError };

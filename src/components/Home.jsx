@@ -1,13 +1,11 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { userContext } from '../context/Context';
+import { useUserContext } from '../context/UserContext';
 import { useTodos } from '../hooks/useTodos';
-import Todo from '../components/Todo';
-
-import '../styles/styles.css';
+import Todo from './Todo';
 
 export default function Home() {
-  const { user } = userContext();
+  const { user } = useUserContext();
 
   const handleRedirect = true;
 

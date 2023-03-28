@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Navigate, useHistory } from 'react-router-dom';
-import { userContext } from '../context/UserContext';
+import { Navigate } from 'react-router-dom';
+import { useUserContext } from '../context/UserContext';
 import { createTodo } from '../services/utils';
 
 
@@ -10,9 +10,7 @@ export default function CreateTodo() {
   
   const handleRedirect = true;
 
-  const { user } = userContext();
-
-  const history = useHistory();
+  const { user } = useUserContext();
 
   if (!user) {
     handleRedirect && <Navigate replace to='/auth/sign-in' />;
@@ -24,7 +22,7 @@ export default function CreateTodo() {
       text,
       complete
     );
-    history.push('/');
+    return text;
   }
 
   return (

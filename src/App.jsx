@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 
 import Header from './components/Header';
 import Auth from './components/Auth';
@@ -14,6 +14,8 @@ export default function App() {
   return (
     <>
       <Header />
+      <Navigation />
+
       <Routes>
         <Route path='/auth/:type' element={ <Auth /> } />
         <Route path='/create' element={ <CreateTodo /> } />
@@ -22,5 +24,14 @@ export default function App() {
         <Route path='*' element={ <Error /> } />
       </Routes>      
     </>
+  );
+}
+
+function Navigation() {
+  return (
+    <nav>
+      <NavLink to='/'>home</NavLink>
+      <NavLink to='dashboard'>dashboard</NavLink>
+    </nav>
   );
 }

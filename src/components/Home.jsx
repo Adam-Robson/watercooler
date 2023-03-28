@@ -6,20 +6,16 @@ import Todo from './Todo';
 
 export default function Home() {
   const { user } = useUserContext();
-
   const handleRedirect = true;
-
-  const todos = useTodos();
-
   if (!user) {
     handleRedirect && <Navigate replace to='/auth/sign-in' />;
   }
-
+  const todos = useTodos();
   return (
     <>
       <section>
         <h2>Todos List:</h2>{
-          todos.map((todo) => {
+          todos.todos.map((todo) => {
             <Todo key={ todo.id } { ...todo } />;
           }) }</section>
     </>

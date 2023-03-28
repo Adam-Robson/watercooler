@@ -1,12 +1,12 @@
 import React, { useState, useContext, createContext } from 'react';
-import { getUser } from '../services/auth';
+import { currentUser } from '../services/auth';
 
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const currentUser = getUser();
+  const theUser = currentUser();
 
-  const [user, setUser] = useState(currentUser);
+  const [user, setUser] = useState(theUser);
 
   return <UserContext.Provider value={ { user, setUser } }>{ children }</UserContext.Provider>;
 

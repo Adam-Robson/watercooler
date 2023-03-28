@@ -13,6 +13,7 @@
 
 html,
 body {  
+  margin: 0 auto;
   background-color: var(--mint);
   font-family: var(--main);
   color: var(--black);

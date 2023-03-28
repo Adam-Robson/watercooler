@@ -2,12 +2,19 @@ import React from 'react';
 import Todo from './components/Todo/Todo';
 import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-     <Todo  />
-    </div>
+    <>
+
+      <header
+        id="header"
+        style={ {
+          backgroundImage: "url('./logo.svg ')"
+        } }
+      />
+      
+      <Todo />
+      
+    </>
   );
 }
-
-export default App;

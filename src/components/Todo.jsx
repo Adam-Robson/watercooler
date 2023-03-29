@@ -1,23 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import CreateTodo from './CreateTodo';
 
-export default function Todo() {
+export default function Todo({
+  todoList,
+  setTodoList,
+  currentTodo,
+  setCurrentTodo,
 
-  const [currentTodo, setCurrentTodo] = useState('');
-  const [todoList, setTodoList] = useState([]);
-
-  function addToList() {
-
-    const aNewTodo = {
-      id: todoList.length + 1,
-      text: currentTodo,
-      complete: false
-    };
-
-    const newTodoList = [aNewTodo, ...todoList];
-
-    setTodoList(newTodoList);
-    setCurrentTodo('');
-  }
+}) {
 
   function toggleComplete(id) {
     const newTodoList = todoList.map(
@@ -38,23 +28,12 @@ export default function Todo() {
   return (
     <>
       <section className="container">
-        <h1 className="title">Todos List</h1>
-        <form className="form" onSubmit={
-          (e) => {
-            e.preventDefault();
-            addToList();
-          } }>
-          <input
-            className="input"
-            type="text"
-            value={ currentTodo }
-            onChange={
-              (e) => {
-                setCurrentTodo(e.target.value);
-              } } />
-          <input className="submit" type="submit" />
-        </form>
-
+        <CreateTodo
+          todoList={ todoList }
+          setTodoList={ setTodoList }
+          currentTodo={ currentTodo }
+          setCurrentTodo={ setCurrentTodo }
+        />
         <h2 className="next">next:</h2>
         <ul>
           {

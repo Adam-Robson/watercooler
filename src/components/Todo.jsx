@@ -6,7 +6,6 @@ export default function Todo({
   setTodoList,
   currentTodo,
   setCurrentTodo,
-
 }) {
 
   function toggleComplete(id) {

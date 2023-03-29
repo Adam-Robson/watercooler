@@ -5,11 +5,15 @@ import { useTodos } from '../hooks/useTodos';
 import Todo from './Todo';
 
 export default function Home() {
+  
   const { user } = useUserContext();
+
   const handleRedirect = true;
+  
   if (!user) {
     handleRedirect && <Navigate replace to='/auth/sign-in' />;
   }
+  
   const todos = useTodos();
   return (
     <>

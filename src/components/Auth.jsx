@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Navigate, useParams } from 'react-router-dom';
+import { NavLink, Navigate, useParams, useLocation } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 import { authUser } from '../services/auth';
 
@@ -13,11 +13,14 @@ export default function Auth() {
   
   const { user, setUser } = useUserContext();
 
+  const location = useLocation();
+
   async function handleAuth() {
     const response = await authUser(email, password, type);
     setUser(response);
     setEmail('');
     setPassword('');
+    location.pathname = '/home';
   }
 
   if (user) {
@@ -26,25 +29,23 @@ export default function Auth() {
 
   return (
     <>
-      <section>
+      <section className="auth-form">
 
-        <article>
+        <article className="navlinks">
 
           <NavLink
             className="navlink"
             to="/auth/sign-in"
-            activeClassName="is-active"
           >sign-in</NavLink>
           
           <NavLink
             className="navlink"
             to="/auth/sign-up"
-            activeClassName="is-active"
           >sign-up</NavLink>
           
         </article>
 
-        <article>
+        <article className="auth-inputs">
 
           <label>email
             <input

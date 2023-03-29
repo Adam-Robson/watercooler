@@ -33,7 +33,7 @@ export default function Todo({
           currentTodo={ currentTodo }
           setCurrentTodo={ setCurrentTodo }
         />
-        <h2 className="next">next:</h2>
+        <h2 className="next">Next:</h2>
         <ul>
           {
             todoList.map((todo) => {
@@ -51,7 +51,7 @@ export default function Todo({
             })
           }
         </ul>
-        <h2 className="completed">completed:</h2>
+        <h2 className="completed">Completed:</h2>
         <ul>
           {
             todoList.map((todo) => {

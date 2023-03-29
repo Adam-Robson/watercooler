@@ -41,11 +41,18 @@ body {
 
 }
 
-ul {
-  list-style: none;
+.form {
+  padding: 1rem;
 }
 
-li {
-  font-size: 1.2rem;
+.input {
+  margin: .5rem;
+}
 
+.submit {
+  margin: .5rem;
+}
+
+ul {
+  list-style: none;
 }

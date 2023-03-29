@@ -1,10 +1,10 @@
 import React, { useState, useContext, createContext } from 'react';
-import { currentUser } from '../services/auth';
+import { getCurrentUser } from '../services/auth';
 
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const theUser = currentUser();
+  const theUser = getCurrentUser();
 
   const [user, setUser] = useState(theUser);
 

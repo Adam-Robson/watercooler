@@ -1,6 +1,6 @@
 import { client } from './client';
 
-export async function currentUser() {
+export async function getCurrentUser() {
   return await client.auth.getUser();
 }
 

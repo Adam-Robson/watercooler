@@ -2,28 +2,30 @@ import React, { useState } from 'react';
 
 export default function Todo() {
 
-  const [currentTodoText, setCurrentTodoText] = useState('');
+  const [currentTodo, setCurrentTodo] = useState('');
   const [todoList, setTodoList] = useState([]);
 
-  const addCurrentToTodoList = () => {
-    const newTodoList = [...todoList];
-    
-    newTodoList.push({ 
-      id: todoList.length + 1, 
-      text: currentTodoText, 
-      complete: false 
-    });
-    
-    setTodoList(newTodoList);
-    setCurrentTodoText('');
-  };
+  function addToList() {
 
-  const toggleTodoComplete = (id) => {
+    const aNewTodo = {
+      id: todoList.length + 1,
+      text: currentTodo,
+      complete: false
+    };
+
+    const newTodoList = [aNewTodo, ...todoList];
+
+    setTodoList(newTodoList);
+    setCurrentTodo('');
+  }
+
+  function toggleComplete(id) {
     const newTodoList = todoList.map(
       (todo) => {
         if (todo.id === id) {
-          return { ...todo, 
-            complete: !todo.complete 
+          return {
+            ...todo,
+            complete: !todo.complete
           };
         } else {
           return { ...todo };
@@ -31,28 +33,28 @@ export default function Todo() {
       });
 
     setTodoList(newTodoList);
-  };
+  }
 
   return (
     <>
       <section className="container">
         <h1 className="title">Todos List</h1>
-        <form onSubmit={
-          (e) => { 
+        <form className="form" onSubmit={
+          (e) => {
             e.preventDefault();
-            addCurrentToTodoList();
+            addToList();
           } }>
-          <input 
+          <input
             className="input"
             type="text"
-            value={ currentTodoText } 
+            value={ currentTodo }
             onChange={
               (e) => {
-                setCurrentTodoText(e.target.value); 
+                setCurrentTodo(e.target.value);
               } } />
           <input className="submit" type="submit" />
         </form>
-  
+
         <h2 className="next">next:</h2>
         <ul>
           {
@@ -60,9 +62,9 @@ export default function Todo() {
               if (!todo.complete) {
                 return (
                   <li key={ todo.id }>
-                    <input 
+                    <input
                       type="checkbox"
-                      onClick={ () => toggleTodoComplete(todo.id) } 
+                      onClick={ () => toggleComplete(todo.id) }
                     />{ todo.text }</li>
                 );
               } else {
@@ -78,18 +80,18 @@ export default function Todo() {
               if (todo.complete) {
                 return (
                   <li key={ todo.id }>
-                    <input 
+                    <input
                       type="checkbox"
                       checked="checked"
-                      onClick={ () => toggleTodoComplete(todo.id) } 
+                      onClick={ () => toggleComplete(todo.id) }
                     />{ todo.text }</li>
                 );
               } else {
                 return null;
               }
-            })}
+            }) }
         </ul>
-        <button onClick={ () => setTodoList([]) }>Clear Todos</button>
+        <button onClick={ () => setTodoList([]) }>clear</button>
       </section>
     </>
   );

@@ -1,8 +1,11 @@
 import { createClient } from '@supabase/supabase-js';
 
+const supabaseUrl = 'https://ertopikekvzxqzprshsb.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVydG9waWtla3Z6eHF6cHJzaHNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODAwNjY2MDUsImV4cCI6MTk5NTY0MjYwNX0.PHev3st-2guvFPE7sryAsTxiV36gJHajQdCFGQ0Ffgk';
+
 export const client = createClient(
-  'https://fjidvhxajekcfrrjsnla.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqaWR2aHhhamVrY2ZycmpzbmxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjAxNDU2ODYsImV4cCI6MTk3NTcyMTY4Nn0._zi_gZoOt0ksKYa3J9htU9w6oH8ojf_WkKrLHWGaswo'
+  supabaseUrl,
+  supabaseKey
 );
 
 export function checkError({ data, error }) {

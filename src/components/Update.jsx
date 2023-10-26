@@ -29,9 +29,7 @@ export default function Update() {
       setError(null);
       navigate('/');
     }
-
   }
-
 
   useEffect(() => {
     async function fetchTodo() {

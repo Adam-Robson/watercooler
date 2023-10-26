@@ -15,7 +15,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/create' element={<Create />} />
-          <Route path='/:id' element={<Update />}/>
+          <Route path='/update/:id' element={<Update />}/>
         </Routes>
       </BrowserRouter>
     </>

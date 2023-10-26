@@ -44,7 +44,7 @@ nav {
 }
 
 nav a {
-  color: var(--antique);
+  color: var(--sugar);
   margin: 1rem;
   display: inline-block;
 }
@@ -101,7 +101,6 @@ h3 {
   color: var(--sugar);
 }
 
-
 form {
   background: var(--alice);
   padding: 1.5rem;
@@ -134,17 +133,6 @@ button {
 
 button:hover {
   border-color: var(--sugar);
-}
-
-
-a {
-  font-weight: 400;
-  color: var(--sugar);
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: var(--alice);
 }
 
 button:focus,
